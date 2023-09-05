@@ -509,6 +509,7 @@ let bosses = [
     ],
   },
 ];
+
 const content = document.getElementById("content");
 const navList = document.getElementById("navList");
 bosses.forEach(boss => {
