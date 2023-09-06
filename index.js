@@ -55,6 +55,70 @@ let bosses = [
         abilityId: 71204,
         comment: 'Знижує агргогенерацію танка. Босс не таунтиться, тому треба обережно з трітом на дд.',
       },
+    ],
+    trash: [
+      {
+        npcId: 37949,
+        abilities: [
+          {
+            abilityId: 67719,
+            comment: '',
+          },
+          {
+            abilityId: 71254,
+            comment: '',
+          },
+          {
+            abilityId: 70594,
+            comment: '',
+          },
+          {
+            abilityId: 70906,
+            comment: '',
+          },
+          {
+            abilityId: 71237,
+            comment: '',
+          },
+          {
+            abilityId: 70903,
+            comment: '',
+          },
+          {
+            abilityId: 71234,
+            comment: '',
+          },
+        ],
+      },
+      {
+        npcId: 37890,
+        abilities: [
+          {
+            abilityId: 70659,
+            comment: '',
+          },
+          {
+            abilityId: 70674,
+            comment: '',
+          },
+          {
+            abilityId: 70900,
+            comment: '',
+          },
+          {
+            abilityId: 70670,
+            comment: '',
+          },
+          {
+            abilityId: 70903,
+            comment: '',
+          },
+          {
+            abilityId: 71235,
+            comment: '',
+          },
+        ],
+      },
     ]
   },
   {
@@ -472,11 +536,11 @@ let bosses = [
       },
       {
         abilityId: 69037,
-        comment: 'Вйобує в танка 70к дамага і бафає ліча на 100% хаст на 5 секунд.',
+        comment: 'Сумонить валькірію, яка хватає рандомного гравця і виносить з платформи. Валькірію можно сповільнювати, і потрібно вбити. * Якшо валькірія взяла варлока, або ханта, то в них є портал/відрив і валькірію можна ігнорувати.',
       },
       {
         abilityId: 69409,
-        comment: 'Сумонить валькірію, яка хватає рандомного гравця і виносить з платформи. Валькірію можно сповільнювати, і потрібно вбити. * Якшо валькірія взяла варлока, або ханта, то в них є портал/відрив і валькірію можна ігнорувати.',
+        comment: 'Вйобує в танка 70к дамага і бафає ліча на 100% хаст на 5 секунд.',
       },
       {
         abilityId: 72754,
@@ -533,25 +597,68 @@ bosses.forEach(boss => {
   content.appendChild(article);
 
   if (boss.abilities) {
-    const abilitiesTable = document.createElement("table");
+    const bossAbilitiesTable = document.createElement("table");
     boss.abilities.forEach(ability => {
-      const abilitiesTableRow = document.createElement("tr");
-      const abilitiesTableCell1 = document.createElement("td");
-      const abilitiesTableCell2 = document.createElement("td");
+      const bossAbilitiesTableRow = document.createElement("tr");
+      const bossAbilitiesTableCell1 = document.createElement("td");
+            bossAbilitiesTableCell1.classList.add('w-30');
+      const bossAbilitiesTableCell2 = document.createElement("td");
       
-      const abilitiesListLink = document.createElement("a");
-      abilitiesListLink.setAttribute("href", `https://www.wowhead.com/wotlk/spell=${ability.abilityId}`);
-      abilitiesListLink.setAttribute("target", "_blank");
+      const bossAbilitiesListLink = document.createElement("a");
+            bossAbilitiesListLink.setAttribute("href", `https://www.wowhead.com/wotlk/spell=${ability.abilityId}`);
+            bossAbilitiesListLink.setAttribute("target", "_blank");
 
-      const abilitiesListComment = document.createElement("span");
-      abilitiesListComment.innerText = ability.comment;
+      const bossAbilitiesListComment = document.createElement("span");
+            bossAbilitiesListComment.innerText = ability.comment;
 
-      abilitiesTableCell1.appendChild(abilitiesListLink);
-      abilitiesTableCell2.appendChild(abilitiesListComment);
-      abilitiesTableRow.appendChild(abilitiesTableCell1);
-      abilitiesTableRow.appendChild(abilitiesTableCell2);
-      abilitiesTable.appendChild(abilitiesTableRow);
+      bossAbilitiesTableCell1.appendChild(bossAbilitiesListLink);
+      bossAbilitiesTableCell2.appendChild(bossAbilitiesListComment);
+      bossAbilitiesTableRow.appendChild(bossAbilitiesTableCell1);
+      bossAbilitiesTableRow.appendChild(bossAbilitiesTableCell2);
+      bossAbilitiesTable.appendChild(bossAbilitiesTableRow);
     });
-    article.appendChild(abilitiesTable);
+    article.appendChild(bossAbilitiesTable);
+  }
+
+  
+  if (boss.trash) {
+    const trashAbilitiesTable = document.createElement("table");
+    boss.trash.forEach((trash) => {
+      let trashAbilitiesTableRow = document.createElement("tr");
+      
+      trash.abilities.forEach((ability, i) => {
+        if (!i) {
+          const trashAbilitiesTableCell1 = document.createElement("td");
+                trashAbilitiesTableCell1.classList.add('w-30');
+                trashAbilitiesTableCell1.setAttribute('rowspan', trash.abilities.length);
+  
+          const trashAbilitiesNpcLink = document.createElement("a");
+                trashAbilitiesNpcLink.setAttribute("href", `https://www.wowhead.com/wotlk/npc=${trash.npcId}`);
+  
+                trashAbilitiesTableCell1.appendChild(trashAbilitiesNpcLink);
+                trashAbilitiesTableRow.appendChild(trashAbilitiesTableCell1);
+        }
+
+        const trashAbilitiesTableCell2 = document.createElement("td");
+              trashAbilitiesTableCell2.classList.add('w-30');
+        const trashAbilitiesTableCell3 = document.createElement("td");
+      
+        const trashAbilitiesListLink = document.createElement("a");
+              trashAbilitiesListLink.setAttribute("href", `https://www.wowhead.com/wotlk/spell=${ability.abilityId}`);
+              trashAbilitiesListLink.setAttribute("target", "_blank");
+
+        const trashAbilitiesListComment = document.createElement("span");
+              trashAbilitiesListComment.innerText = ability.comment;
+
+        trashAbilitiesTableCell2.appendChild(trashAbilitiesListLink);
+        trashAbilitiesTableCell3.appendChild(trashAbilitiesListComment);
+      
+        trashAbilitiesTableRow.appendChild(trashAbilitiesTableCell2);
+        trashAbilitiesTableRow.appendChild(trashAbilitiesTableCell3);
+        trashAbilitiesTable.appendChild(trashAbilitiesTableRow);
+        trashAbilitiesTableRow = document.createElement("tr");
+      });
+    });
+    article.appendChild(trashAbilitiesTable);
   }
 });
