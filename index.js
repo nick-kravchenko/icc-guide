@@ -694,6 +694,11 @@ bosses.forEach(boss => {
 
   
   if (boss.trash) {
+    const trashTitle = document.createElement('h6');
+          trashTitle.innerText = 'Trash:';
+          console.log(trashTitle);
+    article.appendChild(trashTitle);
+
     const trashAbilitiesTable = document.createElement("table");
     boss.trash.forEach((trash) => {
       let trashAbilitiesTableRow = document.createElement("tr");
