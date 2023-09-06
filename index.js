@@ -62,31 +62,31 @@ let bosses = [
         abilities: [
           {
             abilityId: 67719,
-            comment: '',
+            comment: 'Просто дебаф, як у дк',
           },
           {
-            abilityId: 71254,
-            comment: '',
+            abilityId: 70901,
+            comment: 'Бафається і всі абілки починають бити в АоЕ',
           },
           {
             abilityId: 70594,
-            comment: '',
+            comment: 'Солотаргет шадоуболт',
           },
           {
             abilityId: 70906,
-            comment: '',
+            comment: 'АоЕ плюха в таргет 10 ярдів',
           },
           {
             abilityId: 71237,
-            comment: '',
+            comment: 'Курса, збільшує кд на абілки на 15 сек.',
           },
           {
             abilityId: 70903,
-            comment: '',
+            comment: 'Моб взривається, наносить дамаг в АоЕ і перероджується.',
           },
           {
             abilityId: 71234,
-            comment: '',
+            comment: 'Після відродження моб імунний до магії. Фіз дд повинні його зафокусити.',
           },
         ],
       },
@@ -95,27 +95,27 @@ let bosses = [
         abilities: [
           {
             abilityId: 70659,
-            comment: '',
+            comment: 'Вішає на танка абсорб хіла.',
           },
           {
             abilityId: 70674,
-            comment: '',
+            comment: 'Бафається, збільшує дамаг. Дає отхіл від дамага.',
           },
           {
             abilityId: 70900,
-            comment: '',
+            comment: 'Бафає на дамаг.',
           },
           {
             abilityId: 70670,
-            comment: '',
+            comment: 'Конусне АоЕ перед їбалом (у більшості випадків - ваншот)',
           },
           {
             abilityId: 70903,
-            comment: '',
+            comment: 'Моб взривається, наносить дамаг в АоЕ і перероджується.',
           },
           {
             abilityId: 71235,
-            comment: '',
+            comment: 'Після відродження моб імунний до фіз дамага. Кастери повинні його зафокусити.',
           },
         ],
       },
