@@ -417,6 +417,13 @@ window.bosses = [
       {
         abilityId: 70346,
         comment: 'Зелена калюжа, дамажить і росте з часом. Треба випивати зомбаком. Регенить зомбаку енергію.',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70351,
@@ -425,14 +432,35 @@ window.bosses = [
       {
         abilityId: 70352,
         comment: 'Проф. дебафає рандомного гравця. Цей гравець може бити тіки зелених слизнюків (Ooze Cloud)',
+        importantFor: {
+          everyone: false,
+          tank: false,
+          healer: false,
+          mdps: true,
+          rdps: true,
+        },
       },
       {
         abilityId: 70353,
         comment: 'Проф. дебафає рандомного гравця. Цей гравець може бити тіки оранжевих слизнюків (Gas Cloud)',
+        importantFor: {
+          everyone: false,
+          tank: false,
+          healer: false,
+          mdps: true,
+          rdps: true,
+        },
       },
       {
         abilityId: 71255,
         comment: 'Проф позаду себе спавнить дві оранжевих бомби. Танк повинен відвести босса, шоб не вайпнути мілікемп.',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: false,
+          mdps: true,
+          rdps: false,
+        },
       },
       {
         abilityId: 71621,
@@ -444,15 +472,29 @@ window.bosses = [
       },
       {
         abilityId: 72295,
-        comment: 'Босс кидає зелений шар в рандомний таргет і він пригає. Наносить АоЕ дамаг і дебафає хасту на 200%. Треба відбігти.',
+        comment: 'Босс кидає зелений шар в рандомний таргет і шар пригає. Наносить АоЕ дамаг і дебафає хасту на 200%. Треба відбігти.',
+        importantFor: {
+          everyone: false,
+          tank: false,
+          healer: true,
+          mdps: false,
+          rdps: true,
+        },
       },
       {
         abilityId: 70405,
         comment: 'Фаза 3. Стакає на танку дебаф. Дебаф дамажить рейд, з кожним стаком все більше. Якшо дебаф спаде з танка/танк помре - босс похілиться.',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70672,
-        comment: 'Оранжевий слизнюк вішає на свій таргет 10 стаків дебафа. З кожною секундою 1 стак зникає.',
+        comment: 'Оранжевий слизнюк, коли вибирає собі таргет, вішає на цей таргет 10 стаків дебафа. З кожною секундою 1 стак зникає.',
       },
       {
         abilityId: 70701,
@@ -465,26 +507,68 @@ window.bosses = [
       {
         abilityId: 70311,
         comment: 'Гравець випиває банку зі столу профа "DRINK ME". І перетворюється на зомбака. Зомбак розвалюється на третій фазі і калюжі пити вже нікому, з часом вони заповнять всю кімнату. (софтенрейдж)',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70360,
         comment: 'Абілка зомбака. Випиває зелену калюжу.',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70539,
         comment: 'Абілка зомбака. Дамажить таргет і сповільнює на 50%',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70542,
         comment: 'Абілка зомбака. Дамажить і знижує армор таргета на 4%, 5 стаків. Тупо сандер.',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70911,
         comment: 'Чума, вішається на рандомний таргет. Не декурситься, не діспелиться, не лічиться. З кожним тіком дамаг від чуми зростає. Чума перекидається на сусідній таргет',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70953,
         comment: 'Коли гравець скинув чуму, він отримує цей дебаф. Збільшує кількість дамага від чуми на 250%. Цей гравець повинен доджити чуму.',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
     ],
   },
@@ -496,10 +580,24 @@ window.bosses = [
       {
         abilityId: 73001,
         comment: 'Коли гравець рухається він отримує дамаг і стак дебафа. З кожним стаком дебафа дамаг збільшується, 10 сек на місці - стаки скидаються.',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 71943,
         comment: 'Келесет. Спавнить шадоу орби, вони дамажать свій таргет по 1000 і стакають дебаф на зниження входящого шадоу дамага.',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 71405,
@@ -516,10 +614,24 @@ window.bosses = [
       {
         abilityId: 71807,
         comment: 'Талдарам. Конусне АоЕ перед їбалом. Дамажить 8 секунд, сповільнює. Не стояти перед їбалом.',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: false,
+          mdps: true,
+          rdps: false,
+        },
       },
       {
         abilityId: 71718,
         comment: 'Талдарам. Кидає вогняний шар в рандомний таргет і наносить дамаг в АоЕ 15 ярдів. Треба відійти від таргета. Летить повільно.',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70982,
@@ -528,14 +640,35 @@ window.bosses = [
       {
         abilityId: 72040,
         comment: 'Талдарам. Кидає імпрувнутий вогняний шар в рандомний таргет і наносить дамаг в АоЕ 15 ярдів. Потрібно стати на шляху вогняного шара, але не біля таргета. Зняти з шара стаки, інакше таргет ваншотне',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 72053,
         comment: 'Валанар. Білий шар, повільно спускається до землі. Якшо спуститься до землі кнокає всіх гравців і дамажить. Якшо орбу продамажити - вона знов підніметься вгору. Зазвичай, на них просто відправляють петів і забиваюють хуй.',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 72037,
         comment: 'Валанар. На землі з\'являється вортекс, який згодом продамажить всіх в радіусі 13 ярдів і відкине. Просто вийти з нього',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70952,
@@ -544,6 +677,13 @@ window.bosses = [
       {
         abilityId: 72039,
         comment: 'Валанар. Вішає на всіх гравців дебаф, який згодом візрветься і відкине сусідніх гравців. потрібно спреднутись /range 12',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
     ],
   },
@@ -559,42 +699,112 @@ window.bosses = [
       {
         abilityId: 71623,
         comment: 'Дотка, яка вішається в ОТ',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: true,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70821,
         comment: 'Дебаф, який вішається в найближчий до МТ таргет (повинен бути ОТ). І наносить 100% від дамага який отримує МТ в ОТ, як шадоудамаг.',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: true,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 71726,
         comment: 'Ланатель кусає рандомний таргет (1 раз за файт) і перетворює його в вампіра',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70867,
         comment: 'Коли Ланатель укусила гравця, на ньому з\'являється дебаф. Який дає +100% дамага. Гравець хілиться від свого дамага і не генерує тріт.',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70877,
         comment: 'Дебаф на "вампірі", потрібно вкусити когось в рейді, бо попадеш в МК',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70923,
         comment: 'Якшо гравець не кусає когось за 15 секунд він потрапляє в МК. Скоріше всього, це вайп',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 71340,
         comment: 'Зв\'язує рандомних гравцім червоними лучиками, гравці дамажать сусідні таргети. Гравці повинні збігтись і лучики пропадуть.',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 71265,
         comment: 'Дебаф, спавнить під тобою войдзони. ~джераксус файт. Войдзони потрібно ШВИДКО винести під стіни.',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 71446,
         comment: 'АоЕ 6 ярдів в рандомний таргет. РДД повинні спреднутись. Мілі поділитись на 2 кемпа',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 71772,
         comment: 'Фаза 2. Ланатель злітає і спамить свої АоЕшки. Рейд повинен спреднутись',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
     ],
   },
@@ -606,10 +816,24 @@ window.bosses = [
       {
         abilityId: 72482,
         comment: 'Під час бою з боссом з\'являються портали. Спочатку це просто зелені кружечки, згодом на їх місці з\'являться портали. Хіли (хпали/шаман) повинні зайти в ці портали',
+        importantFor: {
+          everyone: false,
+          tank: false,
+          healer: true,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70873,
         comment: 'В порталах є зелені сфери, коли гравець торкається цих сфер вони взриваються і вішають дебаф на гравців в невеликому АоЕ. Дебаф стакається і дає багато МП5 і +хіл',
+        importantFor: {
+          everyone: false,
+          tank: false,
+          healer: true,
+          mdps: false,
+          rdps: false,
+        },
       },
     ],
     trash: [
@@ -697,26 +921,68 @@ window.bosses = [
       {
         abilityId: 19983,
         comment: 'Phase 1/3: Land. Клів перед їбалом. Як любий дракон.',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: false,
+          mdps: true,
+          rdps: false,
+        },
       },
       {
         abilityId: 71077,
         comment: 'Phase 1/3: Land. Пиздить хвостом. Як любий дракон.',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: false,
+          mdps: true,
+          rdps: false,
+        },
       },
       {
         abilityId: 69649,
         comment: 'Phase 1/3: Land. Конусна АоЕшка перед їбалом.',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: false,
+          mdps: true,
+          rdps: false,
+        },
       },
       {
         abilityId: 70107,
-        comment: 'Phase 1/3: Land. Фіз атаки стакають дебаф. Каждий стак 1000 дамага/2 сек.',
+        comment: 'Phase 1/3: Land. Ваші фіз атаки стакають на вас дебаф.\n Кожен стак дебафа - 1000 дамага/2 сек.\n Стопнув ДПС - скинув стаки і можна бити далі.',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: false,
+          mdps: true,
+          rdps: false,
+        },
       },
       {
         abilityId: 69762,
         comment: 'Phase 1/3: Land. Дебаф. Поки він на тобі є і ти шось кастуєш. Ти стакаєш дебаф. І получаєш в їбало 2к дамага. Більше кастуєш - більше дамага получаєш. - За кожен каст вішається стак дебафу Instability',
+        importantFor: {
+          everyone: false,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: true,
+        },
       },
       {
         abilityId: 69766,
         comment: 'Phase 1/3: Land. Після закінченння дебафу Unchained Magic або коли ти перестанеш кастувати, через 5 сек , в залежності від кількості стаків ти взриваєшся в АОЕ, можна подохнути і ваншотнути всіх навколо.',
+        importantFor: {
+          everyone: false,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: true,
+        },
       },
       {
         abilityId: 70117,
@@ -725,26 +991,68 @@ window.bosses = [
       {
         abilityId: 70123,
         comment: 'Phase 1/3: Land. Потрібно просто відбігти, якщо не встигаєш - жмеш імун, бо ваншот.',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70126,
         comment: 'Phase 2: Air. Відмічає рандомних гравців, в них згодом кинеться томба',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70157,
         comment: 'Phase 2: Air. Томба, дамажить і заморожує гравця і всіх в радіусі 10. Гравців потрібно прохілити. Томби убити під кінець Air фази, а не одразу.',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70521,
         comment: 'Phase 2: Air. Поки Сіндрагоса літає вона плює АоЕшки в рандомне місце на платформі, спочатку це виглядає як синє коло, потім туди прилітає сфера. Доджиться заходом за томбу. Якшо не задоджив і не фул хп = смерть',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70128,
         comment: 'Phase 3: Land. Сіндрагоса дебафає всіх кого бачить на 15% входящого маг. дамага. Кожні 5 сек. Можна доджити за томбою.',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70157,
         comment: 'Phase 3: Land. Сіндрагоса кидає в рандомний таргет томбу, гравець повинен вибігти із рейда, щоб нікого не задамажити. І щоб всім було зручно зайти за томбу.',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
     ]
   },
@@ -756,14 +1064,35 @@ window.bosses = [
       {
         abilityId: 70358,
         comment: 'Призиває 3 гулі, ОТ забирає.',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70372,
         comment: 'Призиває здорового врайкула, ОТ забирає.',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 72149,
         comment: 'Конусна АоЕшка врайкула',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 72143,
@@ -775,35 +1104,91 @@ window.bosses = [
       },
       {
         abilityId: 70337,
-        comment: 'Болячка, вішається на рандомний таргет. 15 секунд, дамажить кожних 5 секунд по 50к. При діспелі перекидається на інший рандомний таргет. При розвіюванні (діспел, смерть таргета) бафає ліча на 2% дамага. Треба виносити до ОТ, щоб чума  після діспелу переходила на Адів, яких танчить ОТ.',
+        comment: 'Болячка, вішається на рандомний таргет. Висить 15 секунд, дамажить кожних 5 секунд по 50к. При діспелі перекидається на інший рандомний таргет. При розвіюванні (діспел, смерть таргета) бафає ліча на 2% дамага. Треба виносити до ОТ, щоб чума  після діспелу переходила на Адів, яких танчить ОТ.',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 70541,
-        comment: 'Дебаф, вішається на рандомний таргет, продамажує весь рейд при навішуванні і додатково вішає доту на таргет, яка з часом сильніше дамажить, зникає коли прохілити таргет на 90%+ хп. ',
+        comment: 'Дебаф, вішається на рандомний таргет, продамажує весь рейд при навішуванні і додатково вішає доту на таргет, яка з часом сильніше дамажить, зникає коли прохілити таргет на 90%+ хп.\n ~ як мітка на джераксусі, треба прохілити через дебаф.',
+        importantFor: {
+          everyone: false,
+          tank: false,
+          healer: true,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 69037,
-        comment: 'Сумонить валькірію, яка хватає рандомного гравця і виносить з платформи. Валькірію можно сповільнювати, і потрібно вбити. * Якшо валькірія взяла варлока, або ханта, то в них є портал/відрив і валькірію можна ігнорувати.',
+        comment: 'Сумонить валькірію, яка хватає рандомного гравця і виносить з платформи. Валькірію можно сповільнювати, і потрібно вбити.\n * Якшо валькірія взяла варлока, або ханта, то в них є портал/відрив і валькірію можна ігнорувати.',
+        importantFor: {
+          everyone: false,
+          tank: false,
+          healer: false,
+          mdps: true,
+          rdps: true,
+        },
       },
       {
         abilityId: 69409,
         comment: 'Вйобує в танка 70к дамага і бафає ліча на 100% хаст на 5 секунд.',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: true,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 72754,
         comment: 'Здорова чорна войдзона. Якшо гравці отримають від неї дамаг - вона росте. Потрібно вибігати МОМЕНТАЛЬНО.',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 68981,
-        comment: 'Ліч пиздує в центр і начинає АоЕшити в 45 ярдів. Піднімається пол на краю платформи. Треба с\'їбать на край платформи.',
+        comment: 'Ліч пиздує в центр і начинає АоЕшити в 45 ярдів.\n Підіймається пол на краю платформи.\n Треба с\'їбать на край платформи.',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 72262,
-        comment: 'Після каста АоЕшки край платформи обсипається, треба с\'їбать з края платформи, пока він не обвалився.',
+        comment: 'Після каста АоЕшки край платформи обсипається.\n Треба с\'їбать з края платформи, пока він не обвалився.',
+        importantFor: {
+          everyone: true,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 69103,
         comment: 'Призиває льодяні сфери, які летять до рандомного гравця з центру кімнати, їх потрібно вбити (РДД)',
+        importantFor: {
+          everyone: false,
+          tank: false,
+          healer: false,
+          mdps: false,
+          rdps: true,
+        },
       },
       {
         abilityId: 72133,
@@ -812,10 +1197,24 @@ window.bosses = [
       {
         abilityId: 69200,
         comment: 'Дух, який б\'є рандомний таргет, його потрібно вбити. ОТ танчить.',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
       {
         abilityId: 69242,
         comment: 'У Raging Spirit є конусне АоЕ з сайленсом. Потрібно відвертати від рейда.',
+        importantFor: {
+          everyone: false,
+          tank: true,
+          healer: false,
+          mdps: false,
+          rdps: false,
+        },
       },
     ],
   },
