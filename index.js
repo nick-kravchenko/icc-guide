@@ -676,7 +676,7 @@ bosses.forEach((boss, k) => {
         if (new URLSearchParams(window.location.search).get('boss') === boss.id) radio.setAttribute('checked', 'checked');
         if (!new URLSearchParams(window.location.search).get('boss') && k === 0) radio.setAttribute('checked', 'checked');
         radio.addEventListener('change', (event) => {
-          window.location.replace(window.location.pathname + `?boss=${boss.id}`);
+          window.history.replaceState({}, "", window.location.pathname + `?boss=${boss.id}`);
         });
 
   article.appendChild(title);
