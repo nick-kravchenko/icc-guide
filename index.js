@@ -648,24 +648,39 @@ let bosses = [
 
 const content = document.getElementById("content");
 const navList = document.getElementById("navList");
-bosses.forEach(boss => {
+bosses.forEach((boss, k) => {
   const listEl = document.createElement("li");
-  const listLink = document.createElement("a");
-  listLink.innerText = boss.name;
-  listLink.setAttribute("href", `#${boss.id}`);
-  listEl.appendChild(listLink);
-  navList.appendChild(listEl);
+
+  const listLabel = document.createElement("label");
+        listLabel.innerText = boss.name;
+        listLabel.setAttribute("for", `input-${boss.id}`);
+        listEl.appendChild(listLabel);
+        navList.appendChild(listEl);
 
   const article = document.createElement("article");
   article.setAttribute("id", boss.id);
   const title = document.createElement("h5");
   const link = document.createElement("a");
-  link.setAttribute("href", boss.wowhead);
-  link.setAttribute("target", "_blank");
-  link.innerText = boss.name;
-  title.appendChild(link);
-  title.innerHTML += ' 🔗';
+        link.setAttribute("href", boss.wowhead);
+        link.setAttribute("target", "_blank");
+        link.innerText = boss.name;
+
+        title.appendChild(link);
+        title.innerHTML += ' 🔗';
+
+  const radio = document.createElement('input');
+        radio.setAttribute('type', 'radio');
+        radio.setAttribute('name', 'boss');
+        radio.setAttribute('id', `input-${boss.id}`);
+        radio.setAttribute('value', `${boss.id}`);
+        if (new URLSearchParams(window.location.search).get('boss') === boss.id) radio.setAttribute('checked', 'checked');
+        if (!new URLSearchParams(window.location.search).get('boss') && k === 0) radio.setAttribute('checked', 'checked');
+        radio.addEventListener('change', (event) => {
+          window.location.replace(window.location.pathname + `?boss=${boss.id}`);
+        });
+
   article.appendChild(title);
+  content.appendChild(radio);
   content.appendChild(article);
 
   if (boss.abilities) {
@@ -696,7 +711,6 @@ bosses.forEach(boss => {
   if (boss.trash) {
     const trashTitle = document.createElement('h6');
           trashTitle.innerText = 'Trash:';
-          console.log(trashTitle);
     article.appendChild(trashTitle);
 
     const trashAbilitiesTable = document.createElement("table");
