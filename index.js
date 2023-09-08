@@ -1,48 +1,167 @@
 const content = document.getElementById("content");
-const navList = document.getElementById("navList");
-const tankImage = document.createElement('img');
-      tankImage.classList.add('spec-icon');
-      tankImage.setAttribute('src', './images/tank.svg');
-      tankImage.setAttribute('title', 'Абілка важна для ТАНКІВ');
+const nav = document.getElementById("nav");
+      nav.appendChild(generateNav(bosses));
 
-const healerImage = document.createElement('img');
-      healerImage.classList.add('spec-icon');
-      healerImage.setAttribute('src', './images/healer.svg');
-      healerImage.setAttribute('title', 'Абілка важна для ХІЛІВ');
+/**
+ * 
+ * @param {string[]} classList 
+ * @param {{[key: string]: string}} attributes 
+ */
+function generateImage(classList, attributes) {
+  const image = document.createElement('img');
+  classList.forEach(className => {
+    image.classList.add(className);
+  });
+  for (const attribute in attributes) {
+    if (Object.hasOwnProperty.call(attributes, attribute)) {
+      const value = attributes[attribute];
+      image.setAttribute(attribute, value);
+    }
+  }
+  return image;
+}
 
-const mdpsImage = document.createElement('img');
-      mdpsImage.classList.add('spec-icon');
-      mdpsImage.setAttribute('src', './images/mdps.svg');
-      mdpsImage.setAttribute('title', 'Абілка важна для МІЛІ');
+/**
+ * @typedef {Object} ImportantFor
+ * @property {boolean} everyone
+ * @property {boolean} tank
+ * @property {boolean} healer
+ * @property {boolean} mdps
+ * @property {boolean} rdps
+ */
+/**
+ * @typedef {Object} Ability
+ * @property {number} abilityId,
+ * @property {string} comment,
+ * @property {importantFor} ImportantFor,
+ */
+/**
+ * @typedef {Object} Trash
+ * @property {number} npcId,
+ * @property {Ability[]} abilities,
+ */
+/**
+ * @typedef {Object} Boss
+ * @property {number} id,
+ * @property {string} wowhead,
+ * @property {string} name,
+ * @property {Ability[]} abilities,
+ * @property {Trash[]} trash,
+ */
 
-const rdpsImage = document.createElement('img');
-      rdpsImage.classList.add('spec-icon');
-      rdpsImage.setAttribute('src', './images/rdps.svg');
-      rdpsImage.setAttribute('title', 'Абілка важна для РДД');
+/**
+ * 
+ * @param {Boss[]} bosses 
+ */
+function generateNav(bosses) {
+  const list = document.createElement('ul');
+  bosses.forEach(boss => {
+    const listEl = document.createElement('li');
+    const label = document.createElement("label");
+    label.innerText = boss.name;
+    label.setAttribute("for", `input-${boss.id}`);
+    listEl.appendChild(label);
+    list.appendChild(listEl);
+  });
+  return list;
+}
 
-const exclamationImage = document.createElement('img');
-      exclamationImage.classList.add('spec-icon');
-      exclamationImage.setAttribute('src', './images/exclamation.svg');
-      exclamationImage.setAttribute('title', 'Абілка важна для ВСІХ');
+/**
+ * @param {Ability[]} abilities 
+ */
+function generateBossAbilitiesTable(abilities) {
+  const table = document.createElement('table');
+  abilities.forEach(ability => {
+    const row = document.createElement('tr');
 
-const infoImage = document.createElement('img');
-      infoImage.classList.add('spec-icon');
-      infoImage.setAttribute('src', './images/info.svg');
-      infoImage.setAttribute('title', 'Просто для інфи');
+    const specCell = document.createElement('td');
+    const specIcons = document.createElement('div');
+          specIcons.classList.add('spec-icons');
+          if (ability.importantFor?.tank) specIcons.appendChild(tankImage.cloneNode(true));
+          if (ability.importantFor?.healer) specIcons.appendChild(healerImage.cloneNode(true));
+          if (ability.importantFor?.mdps) specIcons.appendChild(mdpsImage.cloneNode(true));
+          if (ability.importantFor?.rdps) specIcons.appendChild(rdpsImage.cloneNode(true));
+          if (ability.importantFor?.everyone) specIcons.appendChild(exclamationImage.cloneNode(true));
+          if (!ability.importantFor) specIcons.appendChild(infoImage.cloneNode(true));
+          specCell.appendChild(specIcons);
+          row.appendChild(specCell);
 
+    const linkCell = document.createElement('td');
+          linkCell.classList.add('w-30');
+    const link = document.createElement("a");
+          link.setAttribute("href", `https://www.wowhead.com/wotlk/spell=${ability.abilityId}`);
+          link.setAttribute("target", "_blank");
+          linkCell.appendChild(link);
+          row.appendChild(linkCell);
+
+    const commentCell = document.createElement("td");      
+    const comment = document.createElement("p");
+          comment.innerText = ability.comment;
+          commentCell.appendChild(comment);
+          row.appendChild(commentCell);
+
+    table.appendChild(row);
+  });
+
+  return table;
+}
+
+/**
+ * 
+ * @param {Trash[]} trash
+ */
+function generateTrashAbilitiesTable(trashList) {
+  const block = document.createElement('div');
+  trashList.forEach((trash) => {
+    const table = document.createElement('table');
+    let row = document.createElement("tr");
+    const npcRow = document.createElement('tr');
+    const npcLinkCell = document.createElement("td");
+          npcLinkCell.setAttribute('colspan', '2');
+    const npcLink = document.createElement("a");
+          npcLink.setAttribute("href", `https://www.wowhead.com/wotlk/npc=${trash.npcId}`);
+          npcLinkCell.appendChild(npcLink);
+          npcRow.appendChild(npcLinkCell);
+          table.appendChild(npcRow);
+    
+    trash.abilities.forEach((ability) => {
+
+      const abilityLinkCell = document.createElement("td");
+            abilityLinkCell.classList.add('w-30');
+      const abilityLink = document.createElement("a");
+            abilityLink.setAttribute("href", `https://www.wowhead.com/wotlk/spell=${ability.abilityId}`);
+            abilityLink.setAttribute("target", "_blank");
+            abilityLinkCell.appendChild(abilityLink);
+            row.appendChild(abilityLinkCell);
+
+      const commentCell = document.createElement("td");
+      const comment = document.createElement("p");
+            comment.innerText = ability.comment;
+            commentCell.appendChild(comment);
+            row.appendChild(commentCell);
+
+      table.appendChild(row);
+      row = document.createElement("tr");
+    });
+    block.appendChild(table);
+  });
+  return block;
+}
+
+function generateTile() {
+  const tile = document.createElement('div');
+  tile.classList.add('tile');
+  return tile;
+}
+
+const tankImage = generateImage(['spec-icon'], { src: './images/tank.svg', title: 'Абілка важна для ТАНКІВ' });
+const healerImage = generateImage(['spec-icon'], { src: './images/healer.svg', title: 'Абілка важна для ХІЛІВ' });
+const mdpsImage = generateImage(['spec-icon'], { src: './images/mdps.svg', title: 'Абілка важна для МІЛІ' });
+const rdpsImage = generateImage(['spec-icon'], { src: './images/rdps.svg', title: 'Абілка важна для РДД' });
+const exclamationImage = generateImage(['spec-icon'], { src: './images/exclamation.svg', title: 'Абілка важна для ВСІХ' });
+const infoImage = generateImage(['spec-icon'], { src: './images/info.svg', title: 'Просто для інфи' });
 
 bosses.forEach((boss, k) => {
-  /**
-   * Nav
-   */
-  const listEl = document.createElement("li");
-  const listLabel = document.createElement("label");
-        listLabel.innerText = boss.name;
-        listLabel.setAttribute("for", `input-${boss.id}`);
-        listEl.appendChild(listLabel);
-        navList.appendChild(listEl);
-
-
   const article = document.createElement("article");
 
   const radio = document.createElement('input');
@@ -57,9 +176,7 @@ bosses.forEach((boss, k) => {
         });
         content.appendChild(radio);
 
-  /**
-   * Article Header
-   */
+  const abilitiesTile = generateTile();
   const title = document.createElement("h5");
   const link = document.createElement("a");
         link.setAttribute("href", boss.wowhead);
@@ -67,94 +184,18 @@ bosses.forEach((boss, k) => {
         link.innerText = boss.name;
         title.appendChild(link);
         title.innerHTML += ' 🔗';
-        article.appendChild(title);
 
-  /**
-   * Boss Abilities
-   */
-  if (boss.abilities) {
-    const bossAbilitiesTable = document.createElement("table");
-    boss.abilities.forEach(ability => {
-      const bossAbilitiesTableRow = document.createElement("tr");
+  abilitiesTile.appendChild(title);
+  abilitiesTile.appendChild(generateBossAbilitiesTable(boss.abilities));
+  article.appendChild(abilitiesTile);
 
-      const bossAbilitiesTableCell1 = document.createElement("td");
-      const specIcons = document.createElement('div');
-            specIcons.classList.add('spec-icons');
-            if (ability.importantFor?.tank) specIcons.appendChild(tankImage.cloneNode(true));
-            if (ability.importantFor?.healer) specIcons.appendChild(healerImage.cloneNode(true));
-            if (ability.importantFor?.mdps) specIcons.appendChild(mdpsImage.cloneNode(true));
-            if (ability.importantFor?.rdps) specIcons.appendChild(rdpsImage.cloneNode(true));
-            if (ability.importantFor?.everyone) specIcons.appendChild(exclamationImage.cloneNode(true));
-            if (!ability.importantFor) specIcons.appendChild(infoImage.cloneNode(true));
-            bossAbilitiesTableCell1.appendChild(specIcons);
-            bossAbilitiesTableRow.appendChild(bossAbilitiesTableCell1);
-
-      const bossAbilitiesTableCell2 = document.createElement("td");
-            bossAbilitiesTableCell2.classList.add('w-30');
-      const bossAbilitiesListLink = document.createElement("a");
-            bossAbilitiesListLink.setAttribute("href", `https://www.wowhead.com/wotlk/spell=${ability.abilityId}`);
-            bossAbilitiesListLink.setAttribute("target", "_blank");
-            bossAbilitiesTableCell2.appendChild(bossAbilitiesListLink);
-            bossAbilitiesTableRow.appendChild(bossAbilitiesTableCell2);
-
-      const bossAbilitiesTableCell3 = document.createElement("td");      
-      const bossAbilitiesListComment = document.createElement("span");
-            bossAbilitiesListComment.innerText = ability.comment;
-            bossAbilitiesTableCell3.appendChild(bossAbilitiesListComment);
-            bossAbilitiesTableRow.appendChild(bossAbilitiesTableCell3);
-
-      bossAbilitiesTable.appendChild(bossAbilitiesTableRow);
-    });
-    article.appendChild(bossAbilitiesTable);
-  }
-
-  
-  /**
-   * Trash Abilities
-   */
   if (boss.trash) {
+    const trashTile = generateTile();
     const trashTitle = document.createElement('h6');
           trashTitle.innerText = 'Trash:';
-    article.appendChild(trashTitle);
-
-    const trashAbilitiesTable = document.createElement("table");
-    boss.trash.forEach((trash) => {
-      let trashAbilitiesTableRow = document.createElement("tr");
-      
-      trash.abilities.forEach((ability, i) => {
-        if (!i) {
-          const trashAbilitiesTableCell1 = document.createElement("td");
-                trashAbilitiesTableCell1.classList.add('w-30');
-                trashAbilitiesTableCell1.setAttribute('rowspan', trash.abilities.length);
-  
-          const trashAbilitiesNpcLink = document.createElement("a");
-                trashAbilitiesNpcLink.setAttribute("href", `https://www.wowhead.com/wotlk/npc=${trash.npcId}`);
-  
-                trashAbilitiesTableCell1.appendChild(trashAbilitiesNpcLink);
-                trashAbilitiesTableRow.appendChild(trashAbilitiesTableCell1);
-        }
-
-        const trashAbilitiesTableCell2 = document.createElement("td");
-              trashAbilitiesTableCell2.classList.add('w-30');
-        const trashAbilitiesTableCell3 = document.createElement("td");
-      
-        const trashAbilitiesListLink = document.createElement("a");
-              trashAbilitiesListLink.setAttribute("href", `https://www.wowhead.com/wotlk/spell=${ability.abilityId}`);
-              trashAbilitiesListLink.setAttribute("target", "_blank");
-
-        const trashAbilitiesListComment = document.createElement("span");
-              trashAbilitiesListComment.innerText = ability.comment;
-
-        trashAbilitiesTableCell2.appendChild(trashAbilitiesListLink);
-        trashAbilitiesTableCell3.appendChild(trashAbilitiesListComment);
-      
-        trashAbilitiesTableRow.appendChild(trashAbilitiesTableCell2);
-        trashAbilitiesTableRow.appendChild(trashAbilitiesTableCell3);
-        trashAbilitiesTable.appendChild(trashAbilitiesTableRow);
-        trashAbilitiesTableRow = document.createElement("tr");
-      });
-    });
-    article.appendChild(trashAbilitiesTable);
+    trashTile.appendChild(trashTitle);
+    trashTile.appendChild(generateTrashAbilitiesTable(boss.trash));
+    article.appendChild(trashTile);
   }
 
   content.appendChild(article);
