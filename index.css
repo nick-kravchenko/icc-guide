@@ -126,7 +126,8 @@ p:last-child {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
+  min-width: 80px;
+  width: 100%;
 }
 .spec-icons img {
   width: 24px;
