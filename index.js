@@ -41,12 +41,18 @@ function generateImage(classList, attributes) {
  * @property {Ability[]} abilities,
  */
 /**
+ * @typedef {Object} Video
+ * @property {string} link,
+ * @property {string} comment,
+ */
+/**
  * @typedef {Object} Boss
  * @property {number} id,
  * @property {string} wowhead,
  * @property {string} name,
  * @property {Ability[]} abilities,
  * @property {Trash[]} trash,
+ * @property {Video[]} videos,
  */
 
 /**
@@ -148,6 +154,36 @@ function generateTrashAbilitiesTable(trashList) {
   return block;
 }
 
+/**
+ * 
+ * @param {Video[]} videos
+ */
+function generateVideosTable(videos) {
+  const table = document.createElement('table');
+  videos.forEach((video) => {
+    let row = document.createElement("tr");
+
+    const linkCell = document.createElement("td");
+          linkCell.classList.add('w-30');
+    const link = document.createElement("a");
+          link.setAttribute("href", video.link);
+          link.innerText = video.link;
+          link.setAttribute("target", "_blank");
+          linkCell.appendChild(link);
+          row.appendChild(linkCell);
+
+    const commentCell = document.createElement("td");
+    const comment = document.createElement("p");
+          comment.innerText = video.comment;
+          commentCell.appendChild(comment);
+          row.appendChild(commentCell);
+
+    table.appendChild(row);
+    row = document.createElement("tr");
+  });
+  return table;
+}
+
 function generateTile() {
   const tile = document.createElement('div');
   tile.classList.add('tile');
@@ -196,6 +232,15 @@ bosses.forEach((boss, k) => {
     trashTile.appendChild(trashTitle);
     trashTile.appendChild(generateTrashAbilitiesTable(boss.trash));
     article.appendChild(trashTile);
+  }
+
+  if (boss.videos) {
+    const videosTile = generateTile();
+    const videosTitle = document.createElement('h6');
+          videosTitle.innerText = 'Кіно:';
+    videosTile.appendChild(videosTitle);
+    videosTile.appendChild(generateVideosTable(boss.videos));
+    article.appendChild(videosTile);
   }
 
   content.appendChild(article);

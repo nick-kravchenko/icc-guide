@@ -48,7 +48,13 @@ window.bosses = [
           rdps: false,
         },
       },
-    ]
+    ],
+    videos: [
+      { link: "https://youtu.be/JReVprPW9RA", comment: "афлік", },
+      { link: "https://youtu.be/g7_o6ISpoLo", comment: "демон", },
+      { link: "https://youtu.be/iqdq60lxoXM", comment: "протпал", },
+      { link: "https://youtu.be/jRikgDTWGl8", comment: "анхолі дк", },
+    ],
   },
   {
     id: "LadyDeathwhisper",
@@ -175,7 +181,11 @@ window.bosses = [
           },
         ],
       },
-    ]
+    ],
+    videos: [
+      { link: "https://youtu.be/hbs4SiR_cJU?t=7020", comment: "афлік, з таймінгом", },
+      { link: "https://youtu.be/_EZl4aew2AU", comment: "фурік", },
+    ],
   },
   {
     id: "DeathbringerSaurfang",
@@ -250,6 +260,9 @@ window.bosses = [
         },
       },
     ],
+    videos: [
+      { link: "https://youtu.be/k7wu5DpxFDI", comment: "афлік", },
+    ],
   },
   {
     id: "Festergut",
@@ -319,6 +332,9 @@ window.bosses = [
           rdps: true,
         },
       },
+    ],
+    videos: [
+      { link: "https://youtu.be/hbs4SiR_cJU?t=15825", comment: "афлік, з таймінгом", },
     ],
   },
   {
@@ -407,6 +423,9 @@ window.bosses = [
           rdps: false,
         },
       },
+    ],
+    videos: [
+      { link: "https://youtu.be/hbs4SiR_cJU?t=16320", comment: "афлік, з таймінгом", },
     ],
   },
   {
@@ -686,6 +705,9 @@ window.bosses = [
         },
       },
     ],
+    videos: [
+      { link: "https://youtu.be/JQvxCcuPhZs?t=90", comment: "афлік, з таймінгом", },
+    ],
   },
   {
     id: "Blood-QueenLana'Thel",
@@ -806,6 +828,9 @@ window.bosses = [
           rdps: false,
         },
       },
+    ],
+    videos: [
+      { link: "https://youtu.be/JQvxCcuPhZs?t=3050", comment: "афлік, з таймінгом", },
     ],
   },
   {
