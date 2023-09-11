@@ -54,6 +54,7 @@ window.bosses = [
       { link: "https://youtu.be/g7_o6ISpoLo", comment: "демон", },
       { link: "https://youtu.be/iqdq60lxoXM", comment: "протпал", },
       { link: "https://youtu.be/jRikgDTWGl8", comment: "анхолі дк", },
+      { link: "https://youtu.be/euvY1Cs2IHU", comment: "гайд від жорді" },
     ],
   },
   {
@@ -185,6 +186,7 @@ window.bosses = [
     videos: [
       { link: "https://youtu.be/hbs4SiR_cJU?t=7020", comment: "афлік, з таймінгом", },
       { link: "https://youtu.be/_EZl4aew2AU", comment: "фурік", },
+      { link: "https://youtu.be/EFPfCcoK9Dg", comment: "гайд від жорді" },
     ],
   },
   {
