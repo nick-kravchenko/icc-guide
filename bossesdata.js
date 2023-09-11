@@ -1244,5 +1244,8 @@ window.bosses = [
         },
       },
     ],
+    videos: [
+      { link: "https://youtu.be/AHnx7B3wKXo", comment: "відос з піратки, з бафом і загіреним рейдом" }
+    ]
   },
 ];
