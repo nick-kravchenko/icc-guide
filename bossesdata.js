@@ -264,6 +264,7 @@ window.bosses = [
     ],
     videos: [
       { link: "https://youtu.be/k7wu5DpxFDI", comment: "афлік", },
+      { link: "https://youtu.be/BX1R5jLGVqg", comment: "гайд від жорді" },
     ],
   },
   {
