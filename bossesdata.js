@@ -834,6 +834,7 @@ window.bosses = [
     ],
     videos: [
       { link: "https://youtu.be/JQvxCcuPhZs?t=3050", comment: "афлік, з таймінгом", },
+      { link: "https://youtu.be/5Qw9PebO4NM", comment: "feral", },      
     ],
   },
   {
