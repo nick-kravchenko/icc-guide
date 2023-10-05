@@ -338,6 +338,7 @@ window.bosses = [
     ],
     videos: [
       { link: "https://youtu.be/hbs4SiR_cJU?t=15825", comment: "афлік, з таймінгом", },
+      { link: "https://youtu.be/atMK4bDuDy8", comment: "гайд від жорді", },
     ],
   },
   {
@@ -429,6 +430,7 @@ window.bosses = [
     ],
     videos: [
       { link: "https://youtu.be/hbs4SiR_cJU?t=16320", comment: "афлік, з таймінгом", },
+      { link: "https://youtu.be/x7SNbE3YULY", comment: "гайд від жорді", },
     ],
   },
   {
@@ -710,6 +712,7 @@ window.bosses = [
     ],
     videos: [
       { link: "https://youtu.be/JQvxCcuPhZs?t=90", comment: "афлік, з таймінгом", },
+      { link: "https://youtu.be/m4l8cS3MS2U", comment: "гайд від жорді", },
     ],
   },
   {
@@ -745,7 +748,7 @@ window.bosses = [
       },
       {
         abilityId: 71726,
-        comment: 'Ланатель кусає рандомний таргет (1 раз за файт) і перетворює його в вампіра',
+        comment: 'Ланатель кусає топ тріт таргет після танка (1 раз за файт) і перетворює його в вампіра.',
         importantFor: {
           everyone: true,
           tank: false,
